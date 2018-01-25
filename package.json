@@ -10,7 +10,8 @@
         "build-compile": "tsc",
         "build-lint": "tslint -p ./tsconfig.json -c ./tslint.json -t verbose",
         "build": "npm-run-all build-clean build-compile build-lint",
-        "dist": "npm-run-all build"
+        "security": "nsp check",
+        "dist": "npm-run-all build security"
     },
     "author": "martyn@iota.eco",
     "license": "MIT",
@@ -22,6 +23,7 @@
     "devDependencies": {
         "@types/node": "^9.3.0",
         "npm-run-all": "^4.1.2",
+        "nsp": "^3.1.0",
         "rimraf": "^2.6.2",
         "tslint": "^5.9.1",
         "tslint-microsoft-contrib": "^5.0.2",

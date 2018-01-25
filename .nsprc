@@ -1,10 +1,4 @@
-.history
-.vscode
-node_modules
-test/**/*
-.travis.yml
-.babelrc
-.eslintrc.json
-*.tgz
-package-lock.*
-.nsprc
+{
+  "org": "iotaeco",
+  "integration": "1190c826-1d26-4619-b617-88b2f6cc4c0b"
+}
