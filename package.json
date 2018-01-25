@@ -1,0 +1,30 @@
+{
+    "name": "@iota-pico/examples-nodejs-ts",
+    "version": "0.0.1",
+    "description": "IOTA Pico Framework Examples for NodeJS using TypeScript",
+    "engines": {
+        "node": ">=8"
+    },
+    "scripts": {
+        "build-clean": "rimraf ./dist/*",
+        "build-compile": "tsc",
+        "build-lint": "tslint -p ./tsconfig.json -c ./tslint.json -t verbose",
+        "build": "npm-run-all build-clean build-compile build-lint",
+        "dist": "npm-run-all build"
+    },
+    "author": "martyn@iota.eco",
+    "license": "MIT",
+    "dependencies": {
+        "@iota-pico/api": "^0.0.1",
+        "@iota-pico/core": "^0.0.1",
+        "@iota-pico/pal-nodejs": "^0.0.1"
+    },
+    "devDependencies": {
+        "@types/node": "^9.3.0",
+        "npm-run-all": "^4.1.2",
+        "rimraf": "^2.6.2",
+        "tslint": "^5.9.1",
+        "tslint-microsoft-contrib": "^5.0.2",
+        "typescript": "^2.6.2"
+    }
+}

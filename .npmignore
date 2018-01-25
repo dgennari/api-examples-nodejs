@@ -1,0 +1,9 @@
+.history
+.vscode
+node_modules
+test/**/*
+.travis.yml
+.babelrc
+*.tgz
+package-lock.*
+.nsprc
