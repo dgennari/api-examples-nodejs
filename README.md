@@ -3,3 +3,7 @@
 # IOTA Pico Framework Examples for NodeJS in TypeScript
 
 Example code for using IOTA Pico Framework with NodeJS written in TypeScript.
+
+## Examples
+
+* api\getNodeInfoExample
