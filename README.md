@@ -4,6 +4,55 @@
 
 Example code for using IOTA Pico Framework with NodeJS written in TypeScript.
 
-## Examples
+## Running
 
-* api\getNodeInfoExample
+You can run the examples using the CLI:
+
+```js
+node ./bin/ipent
+```
+
+### Usage
+
+```shell
+Usage: ipent [options] [command]
+
+
+  Options:
+
+    -V, --version  output the version number
+    -h, --help     output usage information
+
+
+  Commands:
+
+    api [example]  Run an API example [getNodeInfo, getNeighbors]
+```
+
+## Configuration
+
+If you want to modify the node that is used to service the examples please modify the config file config/networkConfig.json.
+
+To connect to a node use:
+
+```json
+{
+    "protocol": "http",
+    "host": "n1.iota.eco",
+    "port": 14265
+}
+```
+
+To connect to the sandbox use the following:
+
+```json
+{
+    "protocol": "http",
+    "host": "sandbox.iotatoken.com",
+    "path": "/api/v1/commands",
+    "port": 14265,
+    "additionalHeaders": {
+        "Authorization": "YOUR_SANDBOX_TOKEN"
+    }
+}
+```

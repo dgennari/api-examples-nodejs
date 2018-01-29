@@ -158,7 +158,7 @@
         "no-null-keyword": false,
         "no-parameter-properties": true,
         "no-relative-imports": false,
-        "no-require-imports": true,
+        "no-require-imports": false,
         "no-redundant-jsdoc": false,
         "no-shadowed-variable": true,
         "no-suspicious-comment": true,
@@ -169,7 +169,7 @@
         "no-unsupported-browser-code": true,
         "no-useless-files": true,
         "no-var-keyword": true,
-        "no-var-requires": true,
+        "no-var-requires": false,
         "no-void-expression": false,
         "object-literal-sort-keys": false,
         "one-variable-per-declaration": [

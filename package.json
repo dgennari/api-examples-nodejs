@@ -15,12 +15,19 @@
     },
     "author": "martyn@iota.eco",
     "license": "MIT",
+    "bin": {
+        "ipent": "bin/ipent.js"
+    },
     "dependencies": {
         "@iota-pico/api": "^0.0.1",
         "@iota-pico/core": "^0.0.1",
-        "@iota-pico/pal-nodejs": "^0.0.1"
+        "@iota-pico/pal-nodejs": "^0.0.1",
+        "@types/chalk": "^2.2.0",
+        "chalk": "^2.3.0",
+        "commander": "^2.13.0"
     },
     "devDependencies": {
+        "@types/commander": "^2.12.2",
         "@types/node": "^9.3.0",
         "npm-run-all": "^4.1.2",
         "nsp": "^3.1.0",
