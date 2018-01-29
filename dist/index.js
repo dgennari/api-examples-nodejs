@@ -6,25 +6,55 @@ const commander = require("commander");
  * Main CLI Interface
  */
 async function run() {
+    const oldConsoleError = console.error;
+    console.error = (error) => {
+        oldConsoleError(chalk_1.default.red(error));
+    };
+    const packageJson = require("../package.json");
+    console.log(packageJson.description);
+    console.log("".padStart(packageJson.description.length, "="));
     commander
-        .version(require("../package.json").version);
+        .option("-n, --neighbor <uri>", "A neighbor to add/remove from your node e.g. udp://1.2.3.4:14600")
+        .version(packageJson.version);
     commander
-        .command("api [example]")
-        .description("Run an API example [getNodeInfo, getNeighbors]")
-        .action(async (api, options) => {
-        if (!api) {
-            console.log(chalk_1.default.red(`You must specify which API to call.`));
+        .command("getNodeInfo")
+        .description("Returns information about your node.")
+        .action(async () => {
+        await runExample("getNodeInfo");
+    });
+    commander
+        .command("getNeighbors")
+        .description("Returns the set of neighbors you are connected with.")
+        .action(async () => {
+        await runExample("getNeighbors");
+    });
+    commander
+        .command("addNeighbors")
+        .option("-n, --neighbor <uri>")
+        .description("Add a neighbor to your node.")
+        .action(async (cmd) => {
+        if (!cmd.parent || !cmd.parent.neighbor) {
+            console.error("ERROR: neighbor option is required");
+            return;
         }
-        else {
-            try {
-                const module = await Promise.resolve().then(() => require(`./api/${api}Example`));
-                const exampleMethod = module[`${api}Example`];
-                exampleMethod();
-            }
-            catch (err) {
-                console.log(chalk_1.default.red(`Unable to load example ${api}.`));
-            }
+        await runExample("addNeighbors", cmd.parent.neighbor);
+    });
+    commander
+        .command("removeNeighbors")
+        .option("-n, --neighbor <uri>")
+        .description("Remove a neighbor from your node.")
+        .action(async (cmd) => {
+        if (!cmd.parent || !cmd.parent.neighbor) {
+            console.error("ERROR: neighbor option is required");
+            return;
         }
+        await runExample("removeNeighbors", cmd.parent.neighbor);
+    });
+    commander
+        .command("*", undefined, { noHelp: true })
+        .action(() => {
+        console.error(`Unknown Command: ${commander.args.join(" ")}`);
+        commander.help();
     });
     commander.parse(process.argv);
     if (!process.argv.slice(2).length) {
@@ -32,3 +62,13 @@ async function run() {
     }
 }
 exports.run = run;
+async function runExample(api, ...args) {
+    try {
+        const module = await require(`./api/${api}Example`);
+        const exampleMethod = module[`${api}Example`];
+        exampleMethod(...args);
+    }
+    catch (err) {
+        console.log(chalk_1.default.red(`Unable to load example ${api}.`));
+    }
+}

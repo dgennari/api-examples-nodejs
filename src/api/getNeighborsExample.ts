@@ -10,7 +10,7 @@ export async function getNeighborsExample(): Promise<void> {
     const networkClient = networkConfig.getNetworkClient(networkEndPoint);
     const nodeClient = new NodeClient(networkClient, "1", networkConfig.getAdditionalHeaders());
 
-    console.log(`==> Requesting getNeighbors from ${networkEndPoint.getUri()}`);
+    console.log(`==> Performing getNeighbors on ${networkEndPoint.getUri()}`);
     console.log();
 
     try {
