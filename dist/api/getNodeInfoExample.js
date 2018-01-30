@@ -17,8 +17,8 @@ async function getNodeInfoExample() {
     const networkEndPoint = networkConfig.getEndPoint();
     const networkClient = networkConfig.getNetworkClient(networkEndPoint);
     const nodeClient = new nodeClient_1.NodeClient(networkClient, "1", networkConfig.getAdditionalHeaders());
-    console.log(`==> Performing getNodeInfo on ${networkEndPoint.getUri()}`);
-    console.log();
+    console.info(`==> Performing getNodeInfo on ${networkEndPoint.getUri()}`);
+    console.info();
     try {
         const response = await nodeClient.getNodeInfo();
         console.log("<== Success");

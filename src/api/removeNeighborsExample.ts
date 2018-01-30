@@ -10,8 +10,8 @@ export async function removeNeighborsExample(neighbor: string): Promise<void> {
     const networkClient = networkConfig.getNetworkClient(networkEndPoint);
     const nodeClient = new NodeClient(networkClient, "1", networkConfig.getAdditionalHeaders());
 
-    console.log(`==> Performing removeNeighbors on ${networkEndPoint.getUri()}`);
-    console.log();
+    console.info(`==> Performing removeNeighbors on ${networkEndPoint.getUri()}`);
+    console.info();
 
     try {
         const response = await nodeClient.removeNeighbors({ uris: [neighbor] });

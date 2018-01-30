@@ -10,8 +10,8 @@ export async function getNodeInfoExample(): Promise<void> {
     const networkClient = networkConfig.getNetworkClient(networkEndPoint);
     const nodeClient = new NodeClient(networkClient, "1", networkConfig.getAdditionalHeaders());
 
-    console.log(`==> Performing getNodeInfo on ${networkEndPoint.getUri()}`);
-    console.log();
+    console.info(`==> Performing getNodeInfo on ${networkEndPoint.getUri()}`);
+    console.info();
 
     try {
         const response = await nodeClient.getNodeInfo();

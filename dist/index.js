@@ -9,11 +9,11 @@ const commander_1 = __importDefault(require("commander"));
  * Main CLI Interface
  */
 async function run() {
+    const packageJson = require("../package.json");
     const oldConsoleError = console.error;
     console.error = (error) => {
-        oldConsoleError(chalk_1.default.red(error));
+        oldConsoleError(error ? chalk_1.default.red(error) : "");
     };
-    const packageJson = require("../package.json");
     console.log(packageJson.description);
     console.log("".padStart(packageJson.description.length, "="));
     commander_1.default
@@ -67,6 +67,14 @@ async function run() {
 exports.run = run;
 async function runExample(api, ...args) {
     try {
+        const oldConsoleInfo = console.info;
+        console.info = (info) => {
+            oldConsoleInfo(info ? chalk_1.default.cyan(info) : "");
+        };
+        const oldConsoleLog = console.log;
+        console.log = (log) => {
+            oldConsoleLog(log ? chalk_1.default.green(log) : "");
+        };
         const module = await require(`./api/${api}Example`);
         const exampleMethod = module[`${api}Example`];
         exampleMethod(...args);

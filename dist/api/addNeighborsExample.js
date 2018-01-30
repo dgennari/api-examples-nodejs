@@ -17,8 +17,8 @@ async function addNeighborsExample(neighbor) {
     const networkEndPoint = networkConfig.getEndPoint();
     const networkClient = networkConfig.getNetworkClient(networkEndPoint);
     const nodeClient = new nodeClient_1.NodeClient(networkClient, "1", networkConfig.getAdditionalHeaders());
-    console.log(`==> Performing addNeighbors on ${networkEndPoint.getUri()}`);
-    console.log();
+    console.info(`==> Performing addNeighbors on ${networkEndPoint.getUri()}`);
+    console.info();
     try {
         const response = await nodeClient.addNeighbors({ uris: [neighbor] });
         console.log("<== Success");

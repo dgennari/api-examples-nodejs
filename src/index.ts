@@ -5,12 +5,12 @@ import commander from "commander";
  * Main CLI Interface
  */
 export async function run(): Promise<void> {
+    const packageJson = require("../package.json");
+
     const oldConsoleError = console.error;
     console.error = (error: any) => {
-        oldConsoleError(chalk.red(error));
+        oldConsoleError(error ? chalk.red(error) : "");
     };
-
-    const packageJson = require("../package.json");
 
     console.log(packageJson.description);
     console.log("".padStart(packageJson.description.length, "="));
@@ -73,6 +73,16 @@ export async function run(): Promise<void> {
 
 async function runExample(api: string, ...args: any[]): Promise<void> {
     try {
+        const oldConsoleInfo = console.info;
+        console.info = (info: any) => {
+            oldConsoleInfo(info ? chalk.cyan(info) : "");
+        };
+
+        const oldConsoleLog = console.log;
+        console.log = (log: any) => {
+            oldConsoleLog(log ? chalk.green(log) : "");
+        };
+
         const module = await require(`./api/${api}Example`);
         const exampleMethod = module[`${api}Example`];
         exampleMethod(...args);
