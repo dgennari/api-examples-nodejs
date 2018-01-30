@@ -5,7 +5,7 @@ import * as networkConfig from "../networkConfig";
 /**
  * Example of API removeNeighbors.
  */
-export async function removeNeighborsExample(neighbor: string): Promise<void> {
+export async function removeNeighborsExample(uris: string[]): Promise<void> {
     const networkEndPoint = networkConfig.getEndPoint();
     const networkClient = networkConfig.getNetworkClient(networkEndPoint);
     const nodeClient = new NodeClient(networkClient, "1", networkConfig.getAdditionalHeaders());
@@ -14,7 +14,7 @@ export async function removeNeighborsExample(neighbor: string): Promise<void> {
     console.info();
 
     try {
-        const response = await nodeClient.removeNeighbors({ uris: [neighbor] });
+        const response = await nodeClient.removeNeighbors({ uris });
         console.log("<== Success");
         console.log();
         console.log(`\tNeighbours Removed: ${response.removedNeighbors}`);

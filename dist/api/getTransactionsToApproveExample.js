@@ -11,20 +11,19 @@ const nodeClient_1 = require("@iota-pico/api/dist/client/nodeClient");
 const errorHelper_1 = require("@iota-pico/core/dist/helpers/errorHelper");
 const networkConfig = __importStar(require("../networkConfig"));
 /**
- * Example of API removeNeighbors.
+ * Example of API getTransactionsToApprove.
  */
-async function removeNeighborsExample(uris) {
+async function getTransactionsToApproveExample(depth) {
     const networkEndPoint = networkConfig.getEndPoint();
     const networkClient = networkConfig.getNetworkClient(networkEndPoint);
     const nodeClient = new nodeClient_1.NodeClient(networkClient, "1", networkConfig.getAdditionalHeaders());
-    console.info(`==> Performing removeNeighbors on ${networkEndPoint.getUri()}`);
+    console.info(`==> Performing getTransactionsToApprove on ${networkEndPoint.getUri()}`);
     console.info();
     try {
-        const response = await nodeClient.removeNeighbors({ uris });
+        const response = await nodeClient.getTransactionsToApprove({ depth });
         console.log("<== Success");
-        console.log();
-        console.log(`\tNeighbours Removed: ${response.removedNeighbors}`);
-        console.log();
+        console.log(`\tTrunk Transaction: ${response.trunkTransaction}`);
+        console.log(`\tBranch Transaction: ${response.branchTransaction}`);
     }
     catch (err) {
         console.error("<== Failed");
@@ -32,4 +31,4 @@ async function removeNeighborsExample(uris) {
         console.error(errorHelper_1.ErrorHelper.format(err, true));
     }
 }
-exports.removeNeighborsExample = removeNeighborsExample;
+exports.getTransactionsToApproveExample = getTransactionsToApproveExample;

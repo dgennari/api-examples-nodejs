@@ -13,14 +13,14 @@ const networkConfig = __importStar(require("../networkConfig"));
 /**
  * Example of API addNeighbors.
  */
-async function addNeighborsExample(neighbor) {
+async function addNeighborsExample(uris) {
     const networkEndPoint = networkConfig.getEndPoint();
     const networkClient = networkConfig.getNetworkClient(networkEndPoint);
     const nodeClient = new nodeClient_1.NodeClient(networkClient, "1", networkConfig.getAdditionalHeaders());
     console.info(`==> Performing addNeighbors on ${networkEndPoint.getUri()}`);
     console.info();
     try {
-        const response = await nodeClient.addNeighbors({ uris: [neighbor] });
+        const response = await nodeClient.addNeighbors({ uris });
         console.log("<== Success");
         console.log();
         console.log(`\tNeighbours Added: ${response.addedNeighbors}`);

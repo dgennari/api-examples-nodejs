@@ -17,7 +17,16 @@ async function run() {
     console.log(packageJson.description);
     console.log("".padStart(packageJson.description.length, "="));
     commander_1.default
-        .option("-n, --neighbor <uri>", "A neighbor to add/remove from your node e.g. udp://1.2.3.4:14600")
+        .option("--neighbors <comma separated uris>", "Neighbors to add/remove from your node e.g. udp://1.2.3.4:14600", (val) => val.split(","))
+        .option("--bundles <comma separated hashes>", "Hashes to search for in bundles", (val) => val.split(","))
+        .option("--addresses <comma separated hashes>", "Hashes to search for or get balances in addresses", (val) => val.split(","))
+        .option("--tags <comma separated hashes>", "Hashes to search for in tags", (val) => val.split(","))
+        .option("--approvees <comma separated hashes>", "Hashes to search for which confirm specified transaction", (val) => val.split(","))
+        .option("--hashes <comma separated hashes>", "Hashes to return the trytes for", (val) => val.split(","))
+        .option("--transactions <comma separated hashes>", "Hashes to get inclusion states for", (val) => val.split(","))
+        .option("--tips <comma separated hashes>", "Hashes to get inclusion states for", (val) => val.split(","))
+        .option("--threshold <int>", "Confirmation threshold", parseInt)
+        .option("--depth <int>", "Number of bundles to go back to determine the transactions for approval.", parseInt)
         .version(packageJson.version);
     commander_1.default
         .command("getNodeInfo")
@@ -33,25 +42,91 @@ async function run() {
     });
     commander_1.default
         .command("addNeighbors")
-        .option("-n, --neighbor <uri>")
-        .description("Add a neighbor to your node.")
+        .option("--neighbors <uri>")
+        .description("Add neighbors to your node.")
         .action(async (cmd) => {
-        if (!cmd.parent || !cmd.parent.neighbor) {
-            console.error("ERROR: neighbor option is required");
+        if (!cmd.parent || !cmd.parent.neighbors) {
+            console.error("ERROR: neighbors option is required");
             return;
         }
-        await runExample("addNeighbors", cmd.parent.neighbor);
+        await runExample("addNeighbors", cmd.parent.neighbors);
     });
     commander_1.default
         .command("removeNeighbors")
-        .option("-n, --neighbor <uri>")
-        .description("Remove a neighbor from your node.")
+        .option("--neighbors <uri>")
+        .description("Remove neighbors from your node.")
         .action(async (cmd) => {
-        if (!cmd.parent || !cmd.parent.neighbor) {
+        if (!cmd.parent || !cmd.parent.neighbors) {
             console.error("ERROR: neighbor option is required");
             return;
         }
-        await runExample("removeNeighbors", cmd.parent.neighbor);
+        await runExample("removeNeighbors", cmd.parent.neighbors);
+    });
+    commander_1.default
+        .command("getTips")
+        .description("Get the list of tips from the node.")
+        .action(async () => {
+        await runExample("getTips");
+    });
+    commander_1.default
+        .command("findTransactions")
+        .option("--bundles <comma separated hashes>")
+        .option("--addresses <comma separated hashes>")
+        .option("--tags <comma separated hashes>")
+        .option("--approvees <comma separated hashes>")
+        .description("Find the transactions which match the specified input.")
+        .action(async (cmd) => {
+        if (!cmd.parent || !(cmd.parent.bundles || cmd.parent.addresses || cmd.parent.tags || cmd.parent.approvees)) {
+            console.error("ERROR: bundles/addresses/tags/approvees option is required");
+            return;
+        }
+        await runExample("findTransactions", cmd.parent.bundles, cmd.parent.addresses, cmd.parent.tags, cmd.parent.approvees);
+    });
+    commander_1.default
+        .command("getTrytes")
+        .option("--hashes <comma separated hashes>")
+        .description("Get the trytes for the hashes.")
+        .action(async (cmd) => {
+        if (!cmd.parent || !cmd.parent.hashes) {
+            console.error("ERROR: hashes option is required");
+            return;
+        }
+        await runExample("getTrytes", cmd.parent.hashes);
+    });
+    commander_1.default
+        .command("getInclusionStates")
+        .option("--transactions <comma separated hashes>")
+        .option("--tips <comma separated hashes>")
+        .description("Get the inclusion states of a set of transactions.")
+        .action(async (cmd) => {
+        if (!cmd.parent || !(cmd.parent.transactions || cmd.parent.tips)) {
+            console.error("ERROR: transactions/tips option is required");
+            return;
+        }
+        await runExample("getInclusionStates", cmd.parent.transactions || [], cmd.parent.tips || []);
+    });
+    commander_1.default
+        .command("getBalances")
+        .option("--addresses <comma separated hashes>")
+        .option("--threshold <int>")
+        .description("Get the balances of a set of transactions.")
+        .action(async (cmd) => {
+        if (!cmd.parent || !cmd.parent.addresses) {
+            console.error("ERROR: addresses option is required");
+            return;
+        }
+        await runExample("getBalances", cmd.parent.addresses, cmd.parent.threshold || 100);
+    });
+    commander_1.default
+        .command("getTransactionsToApprove")
+        .option("--depth <int>")
+        .description("Tip selection which returns trunkTransaction and branchTransaction.")
+        .action(async (cmd) => {
+        if (!cmd.parent || cmd.parent.depth === undefined) {
+            console.error("ERROR: depth option is required");
+            return;
+        }
+        await runExample("getTransactionsToApprove", cmd.parent.depth);
     });
     commander_1.default
         .command("*", undefined, { noHelp: true })
