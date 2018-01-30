@@ -1,5 +1,5 @@
 import chalk from "chalk";
-import * as commander from "commander";
+import commander from "commander";
 
 /**
  * Main CLI Interface
