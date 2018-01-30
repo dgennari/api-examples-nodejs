@@ -7,7 +7,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-const nodeClient_1 = require("@iota-pico/api/dist/client/nodeClient");
+const apiClient_1 = require("@iota-pico/api/dist/client/apiClient");
 const errorHelper_1 = require("@iota-pico/core/dist/helpers/errorHelper");
 const networkConfig = __importStar(require("../networkConfig"));
 /**
@@ -16,11 +16,11 @@ const networkConfig = __importStar(require("../networkConfig"));
 async function findTransactionsExample(bundles, addresses, tags, approvees) {
     const networkEndPoint = networkConfig.getEndPoint();
     const networkClient = networkConfig.getNetworkClient(networkEndPoint);
-    const nodeClient = new nodeClient_1.NodeClient(networkClient, "1", networkConfig.getAdditionalHeaders());
+    const apiClient = new apiClient_1.ApiClient(networkClient, "1", networkConfig.getAdditionalHeaders());
     console.info(`==> Performing findTransactions on ${networkEndPoint.getUri()}`);
     console.info();
     try {
-        const response = await nodeClient.findTransactions({ bundles, addresses, tags, approvees });
+        const response = await apiClient.findTransactions({ bundles, addresses, tags, approvees });
         console.log("<== Success");
         console.log();
         if (response.hashes && response.hashes.length > 0) {

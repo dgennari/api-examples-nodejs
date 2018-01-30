@@ -1,4 +1,4 @@
-import { NodeClient } from "@iota-pico/api/dist/client/nodeClient";
+import { ApiClient } from "@iota-pico/api/dist/client/apiClient";
 import { ErrorHelper } from "@iota-pico/core/dist/helpers/errorHelper";
 import * as networkConfig from "../networkConfig";
 
@@ -8,13 +8,13 @@ import * as networkConfig from "../networkConfig";
 export async function getBalancesExample(addresses: string[], threshold: number): Promise<void> {
     const networkEndPoint = networkConfig.getEndPoint();
     const networkClient = networkConfig.getNetworkClient(networkEndPoint);
-    const nodeClient = new NodeClient(networkClient, "1", networkConfig.getAdditionalHeaders());
+    const apiClient = new ApiClient(networkClient, "1", networkConfig.getAdditionalHeaders());
 
     console.info(`==> Performing getBalances on ${networkEndPoint.getUri()}`);
     console.info();
 
     try {
-        const response = await nodeClient.getBalances({ addresses, threshold });
+        const response = await apiClient.getBalances({ addresses, threshold });
         console.log("<== Success");
         console.log();
         if (response.balances && response.balances.length > 0) {

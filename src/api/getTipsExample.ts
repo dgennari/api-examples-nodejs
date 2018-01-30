@@ -1,4 +1,4 @@
-import { NodeClient } from "@iota-pico/api/dist/client/nodeClient";
+import { ApiClient } from "@iota-pico/api/dist/client/apiClient";
 import { ErrorHelper } from "@iota-pico/core/dist/helpers/errorHelper";
 import * as networkConfig from "../networkConfig";
 
@@ -8,13 +8,13 @@ import * as networkConfig from "../networkConfig";
 export async function getTipsExample(): Promise<void> {
     const networkEndPoint = networkConfig.getEndPoint();
     const networkClient = networkConfig.getNetworkClient(networkEndPoint);
-    const nodeClient = new NodeClient(networkClient, "1", networkConfig.getAdditionalHeaders());
+    const apiClient = new ApiClient(networkClient, "1", networkConfig.getAdditionalHeaders());
 
     console.info(`==> Performing getTips on ${networkEndPoint.getUri()}`);
     console.info();
 
     try {
-        const response = await nodeClient.getTips();
+        const response = await apiClient.getTips();
         console.log("<== Success");
         console.log();
         if (response.hashes && response.hashes.length > 0) {
