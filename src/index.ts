@@ -25,7 +25,12 @@ export async function run(): Promise<void> {
         .option("--transactions <comma separated hashes>", "Hashes to get inclusion states for", (val: string) => val.split(","))
         .option("--tips <comma separated hashes>", "Hashes to get inclusion states for", (val: string) => val.split(","))
         .option("--threshold <int>", "Confirmation threshold", parseInt)
-        .option("--depth <int>", "Number of bundles to go back to determine the transactions for approval.", parseInt)
+        .option("--depth <int>", "Number of bundles to go back to determine the transactions for approval", parseInt)
+        .option("--trunkTransaction <hash>", "Trunk transaction to approve")
+        .option("--branchTransaction <hash>", "Branch transaction to approve")
+        .option("--minWeightMagnitude <int>", "Proof of Work intensity. Minimum value is 18", parseInt)
+        .option("--trytes <comma separates trytes>", "List of trytes (raw transaction data) to attach/broadcast/store in the tangle", (val: string) => val.split(","))
+        .option("--tails <comma separated hashes>", "Hashes for tails to check consistency", (val: string) => val.split(","))
         .version(packageJson.version);
 
     commander
@@ -136,6 +141,83 @@ export async function run(): Promise<void> {
                 return;
             }
             await runExample("getTransactionsToApprove", cmd.parent.depth);
+        });
+
+    commander
+        .command("attachToTangle")
+        .option("--trunkTransaction <hash>")
+        .option("--branchTransaction <hash>")
+        .option("--minWeightMagnitude <number>")
+        .option("--trytes <comma separates trytes>")
+        .description("Attaches the specified transactions (trytes) to the Tangle by doing Proof of Work.")
+        .action(async (cmd) => {
+            if (!cmd.parent || !(cmd.parent.trunkTransaction || cmd.parent.branchTransaction || cmd.parent.minWeightMagnitude === undefined || cmd.parent.trytes)) {
+                console.error("ERROR: trunkTransaction/branchTransaction/minWeightMagnitude/trytes options are required");
+                return;
+            }
+            await runExample("attachToTangle", cmd.parent.trunkTransaction, cmd.parent.branchTransaction, cmd.parent.minWeightMagnitude, cmd.parent.trytes);
+        });
+
+    commander
+        .command("interruptAttachingToTangle")
+        .description("Interrupts and completely aborts the attachToTangle process.")
+        .action(async (cmd) => {
+            await runExample("interruptAttachingToTangle");
+        });
+
+    commander
+        .command("broadcastTransactions")
+        .option("--trytes <comma separates trytes>")
+        .description("Broadcast a list of transactions to all neighbors.")
+        .action(async (cmd) => {
+            if (!cmd.parent || !cmd.parent.trytes) {
+                console.error("ERROR: trytes option is required");
+                return;
+            }
+            await runExample("broadcastTransactions", cmd.parent.trytes);
+        });
+
+    commander
+        .command("storeTransactions")
+        .option("--trytes <comma separates trytes>")
+        .description("Store transactions into the local storage.")
+        .action(async (cmd) => {
+            if (!cmd.parent || !cmd.parent.trytes) {
+                console.error("ERROR: trytes option is required");
+                return;
+            }
+            await runExample("storeTransactions", cmd.parent.trytes);
+        });
+
+    commander
+        .command("getMissingTransactions")
+        .description("Get transactions with missing references.")
+        .action(async (cmd) => {
+            await runExample("getMissingTransactions");
+        });
+
+    commander
+        .command("checkConsistency")
+        .option("--tails <comma separated hashes>")
+        .description("Check the consistency of tail hashes.")
+        .action(async (cmd) => {
+            if (!cmd.parent || !cmd.parent.tails) {
+                console.error("ERROR: tails option is required");
+                return;
+            }
+            await runExample("checkConsistency", cmd.parent.tails);
+        });
+
+    commander
+        .command("wereAddressesSpentFrom")
+        .option("--addresses <comma separated hashes>")
+        .description("Have the requested addresses been spent from already.")
+        .action(async (cmd) => {
+            if (!cmd.parent || !cmd.parent.addresses) {
+                console.error("ERROR: addresses option is required");
+                return;
+            }
+            await runExample("wereAddressesSpentFrom", cmd.parent.addresses);
         });
 
     commander
