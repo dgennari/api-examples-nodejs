@@ -19,9 +19,9 @@
         "ipent": "bin/ipent.js"
     },
     "dependencies": {
-        "@iota-pico/api": "^0.0.1",
-        "@iota-pico/core": "^0.0.1",
-        "@iota-pico/pal-nodejs": "^0.0.1",
+        "@iota-pico/api": "^0.5.0",
+        "@iota-pico/core": "^0.5.0",
+        "@iota-pico/pal-nodejs": "^0.5.0",
         "@types/chalk": "^2.2.0",
         "chalk": "^2.3.0",
         "commander": "^2.13.0"
