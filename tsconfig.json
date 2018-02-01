@@ -9,9 +9,11 @@
         "rootDir": "./src/",
         "module": "commonjs",
         "moduleResolution": "node",
-        "strict": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
         "noImplicitReturns": true,
         "noUnusedLocals": true,
+        "strictNullChecks": false,
         "esModuleInterop": true
     },
     "include": [
