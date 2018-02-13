@@ -9,11 +9,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const apiClient_1 = require("@iota-pico/api/dist/client/apiClient");
 const errorHelper_1 = require("@iota-pico/core/dist/helpers/errorHelper");
+const pal_1 = require("@iota-pico/pal-nodejs/dist/pal");
 const networkConfig = __importStar(require("../networkConfig"));
 /**
  * Example of API getTrytes.
  */
 async function getTrytesExample(hashes) {
+    await pal_1.PAL.initialize();
     const networkEndPoint = networkConfig.getEndPoint();
     const networkClient = networkConfig.getNetworkClient(networkEndPoint);
     const apiClient = new apiClient_1.ApiClient(networkClient, "1", networkConfig.getAdditionalHeaders());

@@ -1,6 +1,6 @@
 {
     "name": "@iota-pico/examples-nodejs-ts",
-    "version": "0.6.0",
+    "version": "0.6.1",
     "description": "IOTA Pico Framework Examples for NodeJS using TypeScript",
     "engines": {
         "node": ">=8"
@@ -19,21 +19,21 @@
         "ipent": "bin/ipent.js"
     },
     "dependencies": {
-        "@iota-pico/api": "^0.6.0",
-        "@iota-pico/core": "^0.6.0",
-        "@iota-pico/pal-nodejs": "^0.6.0",
+        "@iota-pico/api": "^0.6.1",
+        "@iota-pico/core": "^0.6.1",
+        "@iota-pico/pal-nodejs": "^0.6.1",
         "@types/chalk": "^2.2.0",
-        "chalk": "^2.3.0",
-        "commander": "^2.13.0"
+        "chalk": "^2.3.1",
+        "commander": "^2.14.1"
     },
     "devDependencies": {
         "@types/commander": "^2.12.2",
-        "@types/node": "^9.3.0",
+        "@types/node": "^9.4.5",
         "npm-run-all": "^4.1.2",
         "nsp": "^3.1.0",
         "rimraf": "^2.6.2",
         "tslint": "^5.9.1",
         "tslint-microsoft-contrib": "^5.0.2",
-        "typescript": "^2.7.0-rc"
+        "typescript": "^2.7.1"
     }
 }

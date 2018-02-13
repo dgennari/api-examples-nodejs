@@ -1,11 +1,14 @@
 import { ApiClient } from "@iota-pico/api/dist/client/apiClient";
 import { ErrorHelper } from "@iota-pico/core/dist/helpers/errorHelper";
+import { PAL } from "@iota-pico/pal-nodejs/dist/pal";
 import * as networkConfig from "../networkConfig";
 
 /**
  * Example of API findTransactions.
  */
 export async function findTransactionsExample(bundles: string[], addresses: string[], tags: string[], approvees: string[]): Promise<void> {
+    await PAL.initialize();
+
     const networkEndPoint = networkConfig.getEndPoint();
     const networkClient = networkConfig.getNetworkClient(networkEndPoint);
     const apiClient = new ApiClient(networkClient, "1", networkConfig.getAdditionalHeaders());
