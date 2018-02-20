@@ -11,7 +11,7 @@
         "build-lint": "tslint -p ./tsconfig.json -c ./tslint.json -t verbose",
         "build": "npm-run-all build-clean build-compile build-lint",
         "security": "nsp check",
-        "dist": "npm-run-all build security"
+        "dist": "npm-run-all build"
     },
     "author": "martyn@iota.eco",
     "license": "MIT",
