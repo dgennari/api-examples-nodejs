@@ -38,8 +38,8 @@ export async function getNodeInfoExample(): Promise<void> {
         console.log(`\ttransactionsToRequest: ${response.transactionsToRequest}`);
         console.log(`\tduration: ${response.duration}`);
     } catch (err) {
-        console.log("<== Failed");
-        console.log();
-        console.log(ErrorHelper.format(err, true));
+        console.error("<== Failed");
+        console.error();
+        console.error(ErrorHelper.format(err, true));
     }
 }

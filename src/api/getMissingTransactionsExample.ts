@@ -35,8 +35,8 @@ export async function getMissingTransactionsExample(): Promise<void> {
             console.log(`\tNo Missing Tx Found`);
         }
     } catch (err) {
-        console.log("<== Failed");
-        console.log();
-        console.log(ErrorHelper.format(err, true));
+        console.error("<== Failed");
+        console.error();
+        console.error(ErrorHelper.format(err, true));
     }
 }

@@ -32,8 +32,8 @@ export async function getNeighborsExample(): Promise<void> {
             console.log(`\tNo Neighbours Found`);
         }
     } catch (err) {
-        console.log("<== Failed");
-        console.log();
-        console.log(ErrorHelper.format(err, true));
+        console.error("<== Failed");
+        console.error();
+        console.error(ErrorHelper.format(err, true));
     }
 }

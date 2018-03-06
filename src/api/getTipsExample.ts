@@ -35,8 +35,8 @@ export async function getTipsExample(): Promise<void> {
             console.log(`\tNo Tips Found`);
         }
     } catch (err) {
-        console.log("<== Failed");
-        console.log();
-        console.log(ErrorHelper.format(err, true));
+        console.error("<== Failed");
+        console.error();
+        console.error(ErrorHelper.format(err, true));
     }
 }

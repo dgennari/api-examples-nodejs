@@ -39,9 +39,9 @@ async function getNeighborsExample() {
         }
     }
     catch (err) {
-        console.log("<== Failed");
-        console.log();
-        console.log(errorHelper_1.ErrorHelper.format(err, true));
+        console.error("<== Failed");
+        console.error();
+        console.error(errorHelper_1.ErrorHelper.format(err, true));
     }
 }
 exports.getNeighborsExample = getNeighborsExample;
