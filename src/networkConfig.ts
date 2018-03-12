@@ -8,7 +8,7 @@ import networkConfigJson from "../config/networkConfig.json";
  * Example network configuration.
  */
 export function getEndPoint(): INetworkEndPoint {
-    return new NetworkEndPoint(networkConfigJson.protocol, networkConfigJson.host, networkConfigJson.path, networkConfigJson.port);
+    return new NetworkEndPoint(networkConfigJson.protocol, networkConfigJson.host, networkConfigJson.port, networkConfigJson.rootPath);
 }
 
 export function getAdditionalHeaders(): { [headers: string]: string } {

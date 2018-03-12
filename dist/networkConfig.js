@@ -10,7 +10,7 @@ const networkConfig_json_1 = __importDefault(require("../config/networkConfig.js
  * Example network configuration.
  */
 function getEndPoint() {
-    return new networkEndPoint_1.NetworkEndPoint(networkConfig_json_1.default.protocol, networkConfig_json_1.default.host, networkConfig_json_1.default.path, networkConfig_json_1.default.port);
+    return new networkEndPoint_1.NetworkEndPoint(networkConfig_json_1.default.protocol, networkConfig_json_1.default.host, networkConfig_json_1.default.port, networkConfig_json_1.default.rootPath);
 }
 exports.getEndPoint = getEndPoint;
 function getAdditionalHeaders() {

@@ -84,9 +84,9 @@ To connect to a node use:
 
 ```json
 {
-    "protocol": "http",
-    "host": "n1.iota.eco",
-    "port": 14265
+    "protocol": "https",
+    "host": "nodes.thetangle.org",
+    "port": 443
 }
 ```
 
