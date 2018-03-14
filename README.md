@@ -85,7 +85,7 @@ To connect to a node use:
 ```json
 {
     "protocol": "https",
-    "host": "nodes.thetangle.org",
+    "host": "field.carriota.com",
     "port": 443
 }
 ```
