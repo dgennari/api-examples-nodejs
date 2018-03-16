@@ -16,7 +16,7 @@ install:
   - cd iotaeco/iota-pico-pal-nodejs
   - npm link @iota-pico/core
   - npm link
-  - cd ../iota-pico-examples-nodejs-ts
+  - cd ../iota-pico-api-examples-nodejs
   - npm link @iota-pico/core @iota-pico/api @iota-pico/pal-nodejs
   - npm install
 script:
