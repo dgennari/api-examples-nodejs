@@ -23,17 +23,19 @@
         "@iota-pico/core": "^0.9.3",
         "@iota-pico/pal-nodejs": "^0.9.3",
         "@types/chalk": "^2.2.0",
-        "chalk": "^2.3.2",
-        "commander": "^2.15.0"
+        "chalk": "^2.4.0",
+        "commander": "^2.15.1"
     },
     "devDependencies": {
         "@types/commander": "^2.12.2",
-        "@types/node": "^9.4.7",
+        "@types/node": "^9.6.6",
         "npm-run-all": "^4.1.2",
         "nsp": "^3.2.1",
         "rimraf": "^2.6.2",
         "tslint": "^5.9.1",
         "tslint-microsoft-contrib": "^5.0.3",
-        "typescript": "^2.7.2"
+        "typescript": "^2.8.3",
+        "webpack": "^4.6.0",
+        "webpack-cli": "^2.0.14"
     }
 }

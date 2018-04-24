@@ -1,4 +1,4 @@
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/iotaeco/iota-pico-api-examples-nodejs/master/LICENSE) [![Build Status](https://travis-ci.org/iotaeco/iota-pico-api-examples-nodejs.svg?branch=master)](https://travis-ci.org/iotaeco/iota-pico-api-examples-nodejs) [![NSP Status](https://nodesecurity.io/orgs/iotaeco/projects/8ef9a97c-2452-4d01-9ee7-e51d507cf9ce/badge)](https://nodesecurity.io/orgs/iotaeco/projects/8ef9a97c-2452-4d01-9ee7-e51d507cf9ce)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/https://github.com/iota-pico/api-examples-nodejs/master/LICENSE) [![Build Status](https://travis-ci.org/https://github.com/iota-pico/api-examples-nodejs.svg?branch=master)](https://travis-ci.org/https://github.com/iota-pico/api-examples-nodejs) [![NSP Status](https://nodesecurity.io/orgs/https://github.com/iota-pico/projects/bac7c25d-1e89-487d-9301-c40a18797c4a/badge)](https://nodesecurity.io/orgs/https://github.com/iota-pico/projects/bac7c25d-1e89-487d-9301-c40a18797c4a)
 
 # IOTA Pico Framework Examples for NodeJS in TypeScript
 
@@ -85,8 +85,8 @@ To connect to a node use:
 The IOTA Pico Framework is a multi-layered set of object oriented JavaScript libraries for use with the IOTA tangle.
 
 If you don't want to use the layered versions of the libraries consider using the  ready bundled versions:
-* [@iota-pico/lib-browser](https://github.com/iotaeco/iota-pico-lib-browser)
-* [@iota-pico/lib-nodejs](https://github.com/iotaeco/iota-pico-lib-nodejs)
+* [@iota-pico/lib-browser](https://github.com/iota-pico/lib-browser)
+* [@iota-pico/lib-nodejs](https://github.com/iota-pico/lib-nodejs)
 
 Each layer is fully abstracted allowing you to replace components with your own implementations very easily.
 
