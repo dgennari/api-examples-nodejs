@@ -2,7 +2,7 @@
 
 ## v0.9.3
 
-* Fix Release
+* Repo rename
 
 ## v0.9.2
 
