@@ -1,4 +1,4 @@
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/https://github.com/iota-pico/api-examples-nodejs/master/LICENSE) [![Build Status](https://travis-ci.org/https://github.com/iota-pico/api-examples-nodejs.svg?branch=master)](https://travis-ci.org/https://github.com/iota-pico/api-examples-nodejs) [![NSP Status](https://nodesecurity.io/orgs/https://github.com/iota-pico/projects/bac7c25d-1e89-487d-9301-c40a18797c4a/badge)](https://nodesecurity.io/orgs/https://github.com/iota-pico/projects/bac7c25d-1e89-487d-9301-c40a18797c4a)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/iota-pico/api-examples-nodejs/master/LICENSE) [![Build Status](https://travis-ci.org/iota-pico/api-examples-nodejs.svg?branch=master)](https://travis-ci.org/iota-pico/api-examples-nodejs) [![NSP Status](https://nodesecurity.io/orgs/iota-pico/projects/bac7c25d-1e89-487d-9301-c40a18797c4a/badge)](https://nodesecurity.io/orgs/iota-pico/projects/bac7c25d-1e89-487d-9301-c40a18797c4a)
 
 # IOTA Pico Framework Examples for NodeJS in TypeScript
 
