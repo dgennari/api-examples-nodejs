@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.9.6
+
+* Dependency Updates
+
 ## v0.9.5
 
 * GitHub and Npm Version alignment
@@ -19,4 +23,3 @@
 ## v0.9.1
 
 * Fix Release
-
