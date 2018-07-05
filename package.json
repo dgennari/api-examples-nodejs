@@ -1,6 +1,6 @@
 {
     "name": "@iota-pico/api-examples-nodejs",
-    "version": "0.9.8",
+    "version": "0.9.9",
     "description": "IOTA Pico Framework Examples for NodeJS using TypeScript",
     "engines": {
         "node": ">=8"
@@ -18,9 +18,9 @@
         "ipent": "bin/ipent.js"
     },
     "dependencies": {
-        "@iota-pico/api": "^0.9.8",
-        "@iota-pico/core": "^0.9.8",
-        "@iota-pico/pal-nodejs": "^0.9.8",
+        "@iota-pico/api": "^0.9.9",
+        "@iota-pico/core": "^0.9.9",
+        "@iota-pico/pal-nodejs": "^0.9.9",
         "chalk": "^2.4.1",
         "commander": "^2.16.0"
     },
