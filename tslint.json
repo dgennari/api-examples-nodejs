@@ -316,6 +316,7 @@
         "typeof-compare": false,
         "no-dynamic-delete": false,
         "binary-expression-operand-order": false,
-        "valid-jsdoc": false
+        "valid-jsdoc": false,
+        "no-unused-variable": false
     }
 }
