@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const networkClientFactory_1 = require("@iota-pico/core/dist/factories/networkClientFactory");
 const networkEndPoint_1 = require("@iota-pico/core/dist/network/networkEndPoint");
+// tslint:disable-next-line:no-default-import
 const networkConfig_json_1 = __importDefault(require("../config/networkConfig.json"));
 /**
  * Example network configuration.

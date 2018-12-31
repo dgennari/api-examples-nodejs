@@ -2,6 +2,7 @@ import { NetworkClientFactory } from "@iota-pico/core/dist/factories/networkClie
 import { INetworkClient } from "@iota-pico/core/dist/interfaces/INetworkClient";
 import { INetworkEndPoint } from "@iota-pico/core/dist/interfaces/INetworkEndPoint";
 import { NetworkEndPoint } from "@iota-pico/core/dist/network/networkEndPoint";
+// tslint:disable-next-line:no-default-import
 import networkConfigJson from "../config/networkConfig.json";
 
 /**
