@@ -18,9 +18,9 @@
         "ipent": "bin/ipent.js"
     },
     "dependencies": {
-        "@iota-pico/api": "1.0.1",
-        "@iota-pico/core": "1.0.1",
-        "@iota-pico/pal-nodejs": "1.0.1",
+        "@iota-pico/api": "^1.0.1",
+        "@iota-pico/core": "^1.0.1",
+        "@iota-pico/pal-nodejs": "^1.0.1",
         "chalk": "^2.4.2",
         "commander": "^2.19.0"
     },
@@ -33,6 +33,6 @@
         "tslint-microsoft-contrib": "^6.1.0",
         "typescript": "^3.3.3333",
         "webpack": "^4.29.6",
-        "webpack-cli": "^3.2.3"
+        "webpack-cli": "^3.3.0"
     }
 }
